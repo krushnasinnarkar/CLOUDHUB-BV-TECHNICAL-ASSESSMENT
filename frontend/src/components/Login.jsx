@@ -14,7 +14,7 @@ const Login = ({ closeModal, handleLoginSuccess, isLoggedIn, setIsLoggedIn }) =>
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(''); // Reset the error state before attempting to submit
+        setError('');
 
         const url = isLoggedIn ? 'http://127.0.0.1:5000/api/login' : 'http://127.0.0.1:5000/api/signup';
         const data = isLoggedIn
@@ -33,18 +33,16 @@ const Login = ({ closeModal, handleLoginSuccess, isLoggedIn, setIsLoggedIn }) =>
             const result = await response.json();
 
             if (response.ok) {
-                // Handle successful login or signup
-                localStorage.setItem('token', result.token); // Store JWT token in localStorage
-                setIsLoggedIn(true); // Call the parent function to update the login state
+                localStorage.setItem('token', result.token);
+                setIsLoggedIn(true);
                 handleLoginSuccess(email);
-                closeModal(); // Close the modal only on success
+                closeModal();
             } else {
-                // If the response was not ok, set the error state
                 setError(result.error || 'An error occurred');
             }
         } catch (err) {
-            console.error('Network error:', err); // Log the error for debugging
-            setError('Network error. Please try again.'); // Set error state
+            console.error('Network error:', err);
+            setError('Network error. Please try again.'); 
         }
     };
 
