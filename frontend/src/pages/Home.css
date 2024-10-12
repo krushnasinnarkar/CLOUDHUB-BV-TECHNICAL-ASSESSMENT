@@ -26,7 +26,6 @@
     background-color: #4194e4;
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .home-content {
         padding: 2rem 1rem;
