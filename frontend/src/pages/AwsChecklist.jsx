@@ -7,14 +7,14 @@ const AwsChecklist = ({ token }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const appsPerPage = 10;
     const [showMore, setShowMore] = useState(false);
-    const [data, setData] = useState([]); // All apps data
-    const [filteredData, setFilteredData] = useState([]); // Filtered apps based on search
+    const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
     const [levelsData, setLevelsData] = useState({});
     const [controlAreasData, setControlAreasData] = useState({});
     const [controlsData, setControlsData] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [searchTerm, setSearchTerm] = useState(''); // State to track search term
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         if (!token) {
@@ -41,7 +41,7 @@ const AwsChecklist = ({ token }) => {
                 });
 
                 const selectionsText = await selectionsResponse.text();
-                const sanitizedSelectionsText = selectionsText.replace(/NaN/g, 'null'); // Replace NaN with null
+                const sanitizedSelectionsText = selectionsText.replace(/NaN/g, 'null');
                 const selectionsData = JSON.parse(sanitizedSelectionsText);
                 const selectionsList = selectionsData.selections || [];
 
@@ -58,7 +58,7 @@ const AwsChecklist = ({ token }) => {
                 });
 
                 setData(initialData);
-                setFilteredData(initialData); // Set the initial filtered data as the full data
+                setFilteredData(initialData);
                 await loadDynamicData(initialData);
             } catch (err) {
                 setError(err.message);
@@ -72,7 +72,6 @@ const AwsChecklist = ({ token }) => {
     }, [token, navigate]);
 
     useEffect(() => {
-        // Filter data based on the search term
         const filteredApps = data.filter(item => item.appName.toLowerCase().includes(searchTerm.toLowerCase()));
         setFilteredData(filteredApps);
     }, [searchTerm, data]);
@@ -166,8 +165,8 @@ const AwsChecklist = ({ token }) => {
 
     const indexOfLastApp = currentPage * appsPerPage;
     const indexOfFirstApp = indexOfLastApp - appsPerPage;
-    const currentApps = filteredData.slice(indexOfFirstApp, indexOfLastApp); // Use filteredData for rendering
-    const totalPages = Math.ceil(filteredData.length / appsPerPage); // Calculate pagination based on filtered data
+    const currentApps = filteredData.slice(indexOfFirstApp, indexOfLastApp);
+    const totalPages = Math.ceil(filteredData.length / appsPerPage);
 
     return (
         <main className="main-content">
@@ -176,7 +175,7 @@ const AwsChecklist = ({ token }) => {
                 type="text"
                 placeholder="Search apps..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)} // Update the search term state on user input
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-bar"
             />
             {loading && <p>Loading...</p>}
