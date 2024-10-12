@@ -7,9 +7,9 @@ const Home = ({ openModal, isLoggedIn }) => {
 
     const handleGoToChecklist = () => {
         if (isLoggedIn) {
-            navigate('/aws-checklist'); // Navigate to checklist if logged in
+            navigate('/aws-checklist'); 
         } else {
-            openModal(); // Open login modal if not logged in
+            openModal();
         }
     };
 
