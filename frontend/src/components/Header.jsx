@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // useNavigate for programmatic navigation
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/logo.png';
 
 const Header = ({ openModal, username, isLoggedIn }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const navigate = useNavigate(); // Hook for navigation
+    const navigate = useNavigate(); 
 
     const handleAwsChecklistClick = () => {
         if (isLoggedIn) {
-            navigate('/aws-checklist'); // Navigate to /aws-checklist if logged in
+            navigate('/aws-checklist');
         } else {
-            openModal(); // Open login modal if not logged in
+            openModal();
         }
     };
 
@@ -26,7 +26,7 @@ const Header = ({ openModal, username, isLoggedIn }) => {
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    {/* AWS Security Checklist link with conditional logic */}
+                    {/* AWS Security Checklist */}
                     <li>
                         <span onClick={handleAwsChecklistClick} style={{ cursor: 'pointer' }}>
                             AWS Security Checklist
