@@ -12,7 +12,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [username, setUsername] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(''); // Add token state
+  const [token, setToken] = useState(''); 
 
   const validateToken = async (token) => {
     try {
@@ -31,18 +31,18 @@ function App() {
       } else {
         localStorage.removeItem('token');
         openModal()
-        setToken(''); // Clear token state if invalid
+        setToken('');
       }
     } catch (error) {
       console.error('Error validating token:', error);
       localStorage.removeItem('token');
-      setToken(''); // Clear token state on error
+      setToken('');
     }
   };
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    setToken(storedToken); // Set the token state
+    setToken(storedToken);
     if (storedToken) {
       validateToken(storedToken);
     }
