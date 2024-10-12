@@ -1,10 +1,7 @@
-/* Header.css */
-
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Space between items */
     padding: 10px 20px;
     background-color: white;
     color: #4194e4;
@@ -16,24 +13,19 @@
 
 nav {
     flex: 1;
-    /* Allow the nav to take remaining space */
     display: flex;
     justify-content: flex-end;
-    /* Align nav items to the right */
 }
 
 nav ul {
     display: flex;
     list-style: none;
     padding: 0;
-    /* Remove default padding */
     margin: 0;
-    /* Remove default margin */
 }
 
 nav ul li {
     margin: 0 15px;
-    /* Space between navigation items */
 }
 
 nav ul li a {
@@ -48,18 +40,15 @@ nav ul li a:hover {
 
 .search-bar {
     flex-grow: 1;
-    /* Makes the search bar flexible */
     margin: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Adds margin between logo and search bar */
 }
 
 .search-bar input {
     width: 100%;
     max-width: 400px;
-    /* Optional: limit width */
     padding: 8px 10px;
     border-radius: 4px;
     border: none;
@@ -68,30 +57,23 @@ nav ul li a:hover {
     background-color: aliceblue;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        /* Stack items vertically */
-        /* Align to the left */
     }
 
     .search-bar {
         margin: 10px 0;
         width: 100%;
-        /* Full width for smaller screens */
     }
 
     nav {
         justify-content: center;
-        /* Center nav items */
         width: 100%;
-        /* Full width */
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
-        /* Wrap items on smaller screens */
     }
 }
