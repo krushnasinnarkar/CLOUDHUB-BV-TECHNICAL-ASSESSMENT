@@ -1,19 +1,13 @@
-/* Login.css */
-
 .modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center horizontally */
     justify-content: center;
-    /* Center vertically */
     height: 100%;
-    /* Ensure modal content takes full height */
 }
 
 .close-button {
     align-self: flex-end;
-    /* Align close button to the right */
     background: none;
     border: none;
     cursor: pointer;
@@ -22,38 +16,30 @@
 
 form {
     width: 100%;
-    /* Full width */
     margin: 0;
-    /* Remove margin to prevent extra space */
 }
 
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    /* Full width */
     padding: 10px;
     margin: 10px 0;
-    /* Margin for spacing */
     border: 1px solid #ddd;
     border-radius: 4px;
-    /* Rounded corners */
 }
 
 button[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #429775;
-    /* Button color */
     color: white;
     border: none;
     border-radius: 4px;
-    /* Rounded corners */
     cursor: pointer;
 }
 
 button[type="submit"]:hover {
     background-color: #357d65;
-    /* Darker shade on hover */
 }
 
 .toggle-text {
